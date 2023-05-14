@@ -1,6 +1,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 pragma solidity ^0.8.0;
 
+/**
+ * @title Library for utility function when working with bools.
+ * @author cyotee doge
+ */
+// TODO Write NatSpec comments.
+// TODO Complete unit testinfg for all functions.
+// TODO Implement manual decoding of packed bool.
 
 /* -------------------------------------------------------------------------- */
 /*                             SECTION Bool                                   */
@@ -64,6 +71,22 @@ library BoolUtils {
     Bool.Layout storage layout
   ) internal {
     delete layout.value;
+  }
+
+  // TODO Switch to packed decoding.
+  function _unmarshallBool(
+    bytes memory data
+  ) internal pure returns(bool decodedData) {
+    decodedData = (data.length >= 1)
+    ? abi.decode(data, (bool))
+    : false;
+  }
+
+  // TODO When packed decoding is implemented, switch to packed encoding.
+  function _marshallBool(
+    bool value
+  ) internal pure returns(bytes memory blob) {
+    blob = abi.encode(value);
   }
 
 }
