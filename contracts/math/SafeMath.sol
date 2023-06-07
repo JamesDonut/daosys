@@ -72,7 +72,8 @@ library SafeMath {
      * @dev Returns the remainder of dividing two unsigned integers, with a division by zero flag.
      *
      * _Available since v3.4._
-     */
+     */cannot be zero.
+  */
     function tryMod(uint256 a, uint256 b) internal pure returns (bool, uint256) {
         unchecked {
             if (b == 0) return (false, 0);
