@@ -5,8 +5,7 @@ pragma solidity ^0.8.0;
 import {
     Bool,
     BoolUtils
-    from "../Bool.sol"
-}
+} from "contracts/types/primitives/Bool.sol";
 
 contract BoolMock {
 

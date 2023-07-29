@@ -8,7 +8,7 @@ import {
 
 contract MathUtils {
 
-    using MathUtils for Math.Layout
+    using MathUtils for Math.Layout;
 
     function add(uint256 a, uint256 b) external returns (uint256 result) {
         result = MathUtils.add(a, b);

@@ -46,9 +46,9 @@ describe('FullMath', function () {
   describe("abs()", function () {
     it("Converts to absolute value, and fails on overflow.", async function () {
       const initCode = fullMathMock.deployTransaction.data;
-      const a = Math.random() * 9007199254740991;
+      const a = -1000;
 
-      expect(await fullMathMock.abs(a)).to.equal(a).or.to.equal(-a);
+      expect(await fullMathMock.abs(a)).to.equal(1000);
     describe('reverts if', function () {
       it('the input value is equal to MIN_INT256', async function () {
 

@@ -31,7 +31,7 @@ library UInt64Utils {
     function _saltStorageSlot(
         bytes32 storageSlotSalt
         ) pure internal returns (bytes32 saltedStorageSlot) {
-        saltedStorageSlot = storageSlotSalt;
+        saltedStorageSlot = storageSlotSalt
         ^_structSlot();
     }
 

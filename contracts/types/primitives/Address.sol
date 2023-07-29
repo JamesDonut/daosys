@@ -3,10 +3,10 @@ pragma solidity ^0.8.0;
 
 import {
   Bytecode
-} from "./Bytecode.sol";
+} from "contracts/types/primitives/Bytecode.sol";
 import {
   UInt
-} from "./UInt.sol";
+} from "contracts/types/primitives/UInt256.sol";
 
 // import "hardhat/console.sol";
 

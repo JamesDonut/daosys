@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import {
     UInt16,
     UInt16Utils
-} from "../primitives/UInt16.sol";
+} from "contracts/types/primitives/UInt16.sol";
 
 /* -------------------------------------------------------------------------- */
 /*                             SECTION UInt32Set                              */
@@ -14,7 +14,7 @@ library UInt16Set {
 
     // 1-indexed to allow 0 to signify nonexistence
     struct Layout {
-        uint16[] storage value;
+        UInt16Set.Enumerable uint16Set;
     }
 
 }

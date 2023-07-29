@@ -87,7 +87,7 @@ library Bytes8SetUtils {
     }
 
     function _add(
-        Bytes8Set.Enumerable storage set
+        Bytes8Set.Enumerable storage set,
         bytes8 value
     ) internal returns (bool) {
         if (!_contains(set, value)) {

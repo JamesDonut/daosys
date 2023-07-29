@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import {
   Bytes32
-} from "./Bytes32.sol";
+} from "contracts/types/primitives/Bytes32.sol";
 
 /**
  * @title A library for deploying contracts EIP-3171 style.

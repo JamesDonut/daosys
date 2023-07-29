@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import {
     UInt32,
     UInt32Utils
-} from "../primitives/UInt32.sol"
+} from "contracts/types/primitives/UInt32.sol";
 
 /* -------------------------------------------------------------------------- */
 /*                            SECION Uint32Counter                            */

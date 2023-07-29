@@ -23,9 +23,9 @@ library  UInt16 {
 
 library UInt16Utils {
 
-    bytes32 constant internal STRUCT_STORAGE_SLOT =keccak256(type(UInt16).creationCode);
+    bytes32 constant internal STRUCT_STORAGE_SLOT = keccak256(type(UInt16).creationCode);
 
-    function _structSlot() pure internal (bytes32 structSlot) {
+    function _structSlot() pure internal returns (bytes32 structSlot) {
         structSlot = STRUCT_STORAGE_SLOT;
     }
 
@@ -43,17 +43,17 @@ library UInt16Utils {
    *  standardization.
    */
 
-   function _layout( bytes32 salt) pure internal returns (UInt8.Layout storage layout ) {
-       bytes32 saltedSlot = _saltStorageSlot(salt);
-       assembly{ layout.slot := saltedSlot }
+    function _layout( bytes32 salt) pure internal returns (UInt8.Layout storage layout ) {
+        bytes32 saltedSlot = _saltStorageSlot(salt);
+        assembly{ layout.slot := saltedSlot }
+    }
 
-   function _setValue(
-       UInt16.Layout storage layout,
-       uint16 newValue
+    function _setValue(
+        UInt16.Layout storage layout,
+        uint16 newValue
     ) internal {
         layout.value = newValue;
-
-   }
+    }
 
    function _getValue(
        UInt16.Layout storage layout
@@ -69,7 +69,6 @@ library UInt16Utils {
 
 }
 
-}
 /* -------------------------------------------------------------------------- */
 /*                            !SECTION UInt16Utils                            */
 /* -------------------------------------------------------------------------- */
