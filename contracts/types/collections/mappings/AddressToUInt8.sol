@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import {
     UInt8,
-    UInt8String
+    UInt8Utils
 } from "contracts/types/primitives/UInt8.sol";
 
 library AddressToUInt8 {

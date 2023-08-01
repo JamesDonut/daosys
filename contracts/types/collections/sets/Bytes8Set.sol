@@ -112,7 +112,7 @@ library Bytes8SetUtils {
             // move last value to now-vacant index
 
             set._values[index] = last;
-            set._indexes[last] = _index + 1;
+            set._indexes[last] = index + 1;
 
             // clear last index
 

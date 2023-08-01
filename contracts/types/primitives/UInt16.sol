@@ -43,7 +43,7 @@ library UInt16Utils {
    *  standardization.
    */
 
-    function _layout( bytes32 salt) pure internal returns (UInt8.Layout storage layout ) {
+    function _layout( bytes32 salt) pure internal returns (UInt16.Layout storage layout ) {
         bytes32 saltedSlot = _saltStorageSlot(salt);
         assembly{ layout.slot := saltedSlot }
     }

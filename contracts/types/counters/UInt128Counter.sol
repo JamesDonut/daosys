@@ -35,7 +35,7 @@ library UInt128CounterUtils {
 
     function _structSlot() pure internal returns (bytes32 structSlot) {
         structSlot = STRUCT_STORAGE_SLOT
-            ^ UInt16Utils._structSlot();
+            ^ UInt128Utils._structSlot();
     }
 
     function _saltStorageSlot(

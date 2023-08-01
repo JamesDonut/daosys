@@ -158,7 +158,7 @@ library SafeMath {
      * @dev Returns the subtraction of two unsigned integers, reverting with custom message on
      * overflow (when the result is negative).
      *
-     * CAUTION: This function is deprecated because it requires allocating memory for the error
+     * CAUTION: This function is deprecated because it requires allocating for the error
      * message unnecessarily. For custom revert reasons use {trySub}.
      *
      * Counterpart to Solidity's `-` operator.
@@ -205,7 +205,7 @@ library SafeMath {
      * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
      * reverting with custom message when dividing by zero.
      *
-     * CAUTION: This function is deprecated because it requires allocating memory for the error
+     * CAUTION: This function is deprecated because it requires allocating for the error
      * message unnecessarily. For custom revert reasons use {tryMod}.
      *
      * Counterpart to Solidity's `%` operator. This function uses a `revert`

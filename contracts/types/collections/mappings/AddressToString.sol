@@ -48,7 +48,7 @@ library AddressToStringUtils {
     function _mapValue(
         AddressToString.Layout storage layout,
         address key,
-        string newValue
+        string memory newValue
     ) internal {
         layout.value[key]._setValue(newValue);
     }
@@ -56,7 +56,7 @@ library AddressToStringUtils {
     function _queryValue(
         AddressToString.Layout storage layout,
         address key
-    ) view internal returns (string value) {
+    ) view internal returns (string memory value) {
         value = layout.value[key]._getValue();
     }
 

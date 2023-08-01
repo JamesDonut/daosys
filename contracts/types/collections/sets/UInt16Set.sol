@@ -7,24 +7,31 @@ import {
 } from "contracts/types/primitives/UInt16.sol";
 
 /* -------------------------------------------------------------------------- */
-/*                             SECTION UInt32Set                              */
+/*                             SECTION UInt16Set                              */
 /* -------------------------------------------------------------------------- */
 
 library UInt16Set {
 
+    struct Enumerable {
+    // 1-indexed to allow 0 to signify nonexistence
+    mapping( uint16 => uint256 ) _indexes;
+    uint16[] _values;
+    uint16 _maxValue;
+  }
+
     // 1-indexed to allow 0 to signify nonexistence
     struct Layout {
-        UInt16Set.Enumerable uint16Set;
+        UInt16Set.Enumerable UInt16Set;
     }
 
 }
 
 /* -------------------------------------------------------------------------- */
-/*                             !SECTION UInt32Set                             */
+/*                             !SECTION UInt16Set                             */
 /* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
-/*                            SECTION UInt32SetOps                            */
+/*                            SECTION UInt16SetOps                            */
 /* -------------------------------------------------------------------------- */
 
 library UInt16SetUtils {
@@ -75,5 +82,5 @@ library UInt16SetUtils {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                            !SECTION UInt32SetOps                           */
+/*                            !SECTION UInt16SetOps                           */
 /* -------------------------------------------------------------------------- */

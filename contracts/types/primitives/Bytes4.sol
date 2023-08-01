@@ -76,8 +76,7 @@ library Bytes4Utils {
    * @dev Provided pending testing that abi.decode is safe when used with bytes from EXCTCODECOPY through SSTORE2 and SSTORE2Map.
    * @dev Should be able to handle abi.encodePacked() and abi.encode() data as member elements are of fixed length.
    * @dev Should fail if provided data does not contain a value that can be decoded.
-   * @param data The raw bytes to be safelty decoded to an address.
-   * @return decodedData The safely decoded provided data as an bytes4[]. Returnssbytes4[](0) is provided data is less than 4 bytes.
+   * @return mergedArray The safely decoded provided data as an bytes4[]. Returnssbytes4[](0) is provided data is less than 4 bytes.
    */
     function _mergeArrays(
     bytes4[] memory array1,

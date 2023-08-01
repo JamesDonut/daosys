@@ -2,7 +2,8 @@
 pragma solidity ^0.8.0;
 
 import {
-  Bytes32
+  Bytes32,
+  Bytes32Utils
 } from "contracts/types/primitives/Bytes32.sol";
 
 /**
@@ -246,7 +247,7 @@ library Bytecode {
     bytes32 initCodeHash_,
     bytes32 salt
   ) internal pure returns (address deployment) {
-    return keccak256(abi.encodePacked(hex'ff', deployer, salt, initCodeHash_))._toAddress();
+    return Bytes32Utils._toAddress(keccak256(abi.encodePacked(hex'ff', deployer, salt, initCodeHash_)));
   }
 
   /**
@@ -272,9 +273,9 @@ library Bytecode {
     address deployer,
     bytes32 salt
   ) internal pure returns (address deployment) {
-    address proxy = keccak256( abi.encodePacked( hex'ff', deployer, salt, Bytecode.CREATE3_PROXY_INITCODEHASH))._toAddress();
+    address proxy = Bytes32Utils._toAddress(keccak256( abi.encodePacked( hex'ff', deployer, salt, Bytecode.CREATE3_PROXY_INITCODEHASH)));
 
-    return keccak256( abi.encodePacked( hex"d6_94", proxy, hex"01"))._toAddress();
+    return Bytes32Utils._toAddress(keccak256( abi.encodePacked( hex"d6_94", proxy, hex"01")));
   }
 
   /**

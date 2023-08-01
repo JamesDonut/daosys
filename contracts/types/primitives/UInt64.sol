@@ -7,7 +7,7 @@ pragma solidity ^0.8.0;
 
 library UInt64 {
 
-    struct UInt64 {
+    struct Layout {
         uint64 value;
     }
 }
@@ -66,10 +66,6 @@ library UInt64Utils {
     }
 
 }
-
-
-  
-
 
 /* -------------------------------------------------------------------------- */
 /*                            !SECTION Uint64Utils                            */
