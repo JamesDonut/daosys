@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 pragma solidity ^0.8.0;
 
+/*
 import {ERC20UFragmentsLogic} from "contracts/tokens/erc20/scaled/ufragments/logic/ERC20UFragmentsLogic.sol";
 import {ERC20Metadata} from "contracts/tokens/erc20/metadata/ERC20Metadata.sol";
 import {ERC20Account} from "contracts/tokens/erc20/account/ERC20Account.sol";
@@ -120,7 +121,7 @@ contract ERC20UFragments
   }
 
   function rebase(
-    int256 supplyDelta
+    uint256 supplyDelta
   ) external returns (uint256)
   {
     uint256 currentTotalSupply = _totalSupply(type(IERC20).interfaceId);
@@ -130,7 +131,7 @@ contract ERC20UFragments
     }
 
     if (supplyDelta < 0) {
-      _setTotalSupply(type(IERC20).interfaceId,  currentTotalSupply - uint256(supplyDelta.abs() ) );
+      _setTotalSupply(type(IERC20).interfaceId,  currentTotalSupply - uint256(FullMath._abs(supplyDelta)));
     } else {
       _setTotalSupply(type(IERC20).interfaceId, currentTotalSupply + uint256(supplyDelta) );
     }
@@ -159,3 +160,4 @@ contract ERC20UFragments
   }
 
 }
+*/

@@ -28,7 +28,6 @@ library UInt64Counter {
 
 library UInt64CounterUtils {
 
-    using UInt64CounterUtils for UInt64Counter.Layout;
     using UInt64Utils for UInt64.Layout;
 
     bytes32 constant private STRUCT_STORAGE_SLOT = keccak256(type(UInt64Counter).creationCode);
@@ -65,7 +64,7 @@ library UInt64CounterUtils {
     function _next(
         UInt64Counter.Layout storage layout
     ) internal returns (uint64 lastCount) {
-        lastCount = layout.count.__getValue();
+        lastCount = layout.count._getValue();
         layout.count._setValue(++lastCount);
     }
 

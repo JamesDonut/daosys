@@ -65,6 +65,17 @@ library UInt256Utils {
     delete layout.value;
   }
 
+  function _stringToUint256(string memory s) pure internal returns (uint) {
+    bytes memory b = bytes(s);
+    uint result = 0;
+    for (uint i = 0; i < b.length; i++) { // c = b[i] was not needed
+        if ( b[i].length >= 48 && b[i].length <= 57) {
+            result = result * 10 + (uint256(uint8(b[i])) - 48); // bytes and int are not compatible with the operator -.
+        }
+    }
+    return result; // this was missing
+  }
+
 }
 
 /* -------------------------------------------------------------------------- */

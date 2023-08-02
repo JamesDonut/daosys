@@ -2,7 +2,14 @@
 pragma solidity ^0.8.0;
 
 import "contracts/types/primitives/Bytecode.sol";
-import "contracts/types/primitives/UInt256.sol";
+import {
+  UInt256,
+  UInt256Utils
+} from "contracts/types/primitives/UInt256.sol";
+import {
+  String,
+  StringUtils
+ } from "contracts/types/primitives/String.sol";
 
 // import "hardhat/console.sol";
 
@@ -81,7 +88,7 @@ library AddressUtils {
   ) internal {
     delete layout.value;
   }
-/*
+
   function _toString(address account) internal pure returns (string memory) {
     bytes32 value = bytes32(uint256(uint160(account)));
     bytes memory alphabet = '0123456789abcdef';
@@ -97,8 +104,8 @@ library AddressUtils {
 
     return string(chars);
   }
-*/
-  function _functionCallWithError(address target, bytes memory data, string memory error) internal returns (bytes memory) {
+
+  function _functionCallWithError(address target, bytes memory data, string memory error) internal returns (bool, bytes memory) {
     return __functionCallWithValue(target, data, 0, error);
   }
 
@@ -161,11 +168,12 @@ library AddressUtils {
   ) internal pure returns(address[] memory array) {
     array = abi.decode(value, (address[]));
   }
+  /*
   function _toString(address account)
   internal pure returns (string memory accountAsString) {
     accountAsString = uint256(uint160(account))._toHexString(20);
   }
-
+*/
   //TODO it needs a unit test.
   function _toBytes32(
     address value
@@ -217,7 +225,7 @@ library AddressUtils {
 
   function _isContract(address account)
   internal view returns (bool isContract) {
-    uint256 size = account._codeSizeOf();
+    uint256 size = UInt256Utils._stringToUint256(_toString(account));
     isContract = size > 0;
   }
 

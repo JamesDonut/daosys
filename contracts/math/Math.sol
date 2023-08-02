@@ -167,7 +167,7 @@ library Math {
     /*
      * Expects percentage to be trailed by 00,
     */
-    function substractPercentage( uint256 total_, uint8 percentageToSub_ ) internal pure returns ( uint256 result_ ) {
+    function substractPercentage( uint256 total_, uint256 percentageToSub_ ) internal pure returns ( uint256 result_ ) {
         return sub( total_, div( mul( total_, percentageToSub_ ), 1000 ) );
     }
 

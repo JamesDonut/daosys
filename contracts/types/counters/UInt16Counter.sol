@@ -31,7 +31,7 @@ library UInt16CounterUtils {
     using UInt16CounterUtils for UInt16Counter.Layout;
     using UInt16Utils for UInt16.Layout;
 
-    bytes32 constant private STRUCT_STORAGE_SLOT = keccak256(type(UInt16Counter).creationcode);
+    bytes32 constant private STRUCT_STORAGE_SLOT = keccak256(type(UInt16Counter).creationCode);
 
     function _structSlot() pure internal returns (bytes32 structSlot) {
         structSlot = STRUCT_STORAGE_SLOT

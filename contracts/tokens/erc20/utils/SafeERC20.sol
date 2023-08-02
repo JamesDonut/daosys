@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.0 (token/ERC20/utils/SafeERC20.sol)
-
 pragma solidity ^0.8.0;
 
+/***
 import "../interfaces/IERC20.sol";
 import {AddressUtils} from "../../../types/primitives/Address.sol";
 
@@ -15,6 +15,7 @@ import {AddressUtils} from "../../../types/primitives/Address.sol";
  * To use this library you can add a `using SafeERC20 for IERC20;` statement to your contract,
  * which allows you to call the safe operations as `token.safeTransfer(...)`, etc.
  */
+ /*
 library SafeERC20 {
     using AddressUtils for address;
 
@@ -42,6 +43,8 @@ library SafeERC20 {
      * Whenever possible, use {safeIncreaseAllowance} and
      * {safeDecreaseAllowance} instead.
      */
+
+    /*
     function safeApprove(
         IERC20 token,
         address spender,
@@ -85,6 +88,8 @@ library SafeERC20 {
      * @param token The token targeted by the call.
      * @param data The call data (encoded using abi.encode or one of its variants).
      */
+
+     /*
     function _callOptionalReturn(IERC20 token, bytes memory data) private {
         // We need to perform a low level call here, to bypass Solidity's return data size checking mechanism, since
         // we're implementing it ourselves. We use {Address.functionCall} to perform this call, which verifies that
@@ -97,3 +102,5 @@ library SafeERC20 {
         }
     }
 }
+
+**/
