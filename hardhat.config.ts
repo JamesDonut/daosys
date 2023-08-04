@@ -11,6 +11,15 @@ import 'hardhat-abi-exporter';
 import 'hardhat-contract-sizer';
 import 'hardhat-spdx-license-identifier';
 import '@openzeppelin/hardhat-upgrades';
+/*
+
+!!!!!Added by SpaceDive on the 05.08.2023//
+
+*/
+require("@nomiclabs/hardhat-waffle");
+/*
+!!!!!Added by SpaceDive on the 05.08.2023//
+*/
 
 dotenv.config();
 
