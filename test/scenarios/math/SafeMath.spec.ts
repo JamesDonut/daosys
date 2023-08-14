@@ -9,8 +9,9 @@ import {
     SafeMathMock__factory
 } from '../../../typechain';
     
+describe('SafeMath', function() {
 
-let SafeMathMock: SafeMathMock;
+let safeMathMock: SafeMathMock;
 
 /* -------------------------------------------------------------------------- */
 /*                        SECTION Before All Test Hook                        */
@@ -29,6 +30,11 @@ before(async function () {
 /*                        SECTION Before Each Test Hook                       */
 /* -------------------------------------------------------------------------- */
 
+beforeEach(async function () {
+    const [deployer] = await ethers.getSigners();
+    safeMathMock = await new SafeMathMock__factory(deployer).deploy();
+});
+
 /* -------------------------------------------------------------------------- */
 /*                       !SECTION Before Each Test Hook                       */
 /* -------------------------------------------------------------------------- */
@@ -37,14 +43,16 @@ before(async function () {
 /*                           SECTION Testing SafeMath                         */
 /* -------------------------------------------------------------------------- */
 
-
-describe("SafeMath", function() {
     describe("tryAdd()", function () {
         it("Returns: Addition of two unsigned integers, with a overflow flag.", async function () {
             const a = 200;
             const b = 50;
 
-            expect(await SafeMathMock.tryAdd(a, b)).to.equal(true, 250);
+            const [x, y] = await safeMathMock.tryAdd(a, b);
+
+            expect(x).to.equal(true);
+            expect(y).to.equal(250);
+           
         });
     });
 
@@ -52,8 +60,12 @@ describe("SafeMath", function() {
         it("Returns: Substraction of two unsigned integers, with a overflow flag.", async function () {
             const a = 200;
             const b = 50;
+
+            const [x, y] = await safeMathMock.trySub(a, b);
+
+            expect(x).to.equal(true);
+            expect(y).to.equal(150);
             
-            expect(await SafeMathMock.trySub(a, b)).to.equal(true, 150);
         });
     });
 
@@ -62,7 +74,11 @@ describe("SafeMath", function() {
             const a = 200;
             const b = 50;
             
-            expect(await SafeMathMock.tryMul(a, b)).to.equal(true, 10000);
+            const [x, y] = await safeMathMock.tryMul(a, b);
+
+            expect(x).to.equal(true);
+            expect(y).to.equal(10000);
+
         });
     });
 
@@ -71,7 +87,11 @@ describe("SafeMath", function() {
             const a = 200;
             const b = 50;
 
-            expect(await SafeMathMock.tryDiv(a, b)).to.equal(true, 4);
+            const [x, y] = await safeMathMock.tryDiv(a, b);
+
+            expect(x).to.equal(true);
+            expect(y).to.equal(4);
+
         });
     });
 
@@ -80,7 +100,11 @@ describe("SafeMath", function() {
             const a = 200;
             const b = 50;
 
-            expect(await SafeMathMock.tryMod(a, b)).to.equal(true, 0);
+            const [x, y] = await safeMathMock.tryMod(a, b);
+
+            expect(x).to.equal(true);
+            expect(y).to.equal(0);
+
         });
     });
 
@@ -89,7 +113,7 @@ describe("SafeMath", function() {
             const a = 200;
             const b = 50;
 
-            expect(await SafeMathMock.add(a, b)).to.equal(250);
+            expect(await safeMathMock.add(a, b)).to.equal(250);
         });
     });
 
@@ -98,7 +122,7 @@ describe("SafeMath", function() {
             const a = 200;
             const b = 50;
 
-            expect(await SafeMathMock.add(a, b)).to.equal(150);
+            expect(await safeMathMock.sub(a, b)).to.equal(150);
         });
     });
 
@@ -107,7 +131,7 @@ describe("SafeMath", function() {
             const a = 200;
             const b = 50;
 
-            expect(await SafeMathMock.add(a, b)).to.equal(10000);
+            expect(await safeMathMock.mul(a, b)).to.equal(10000);
         });
     });
 
@@ -116,7 +140,7 @@ describe("SafeMath", function() {
             const a = 200;
             const b = 50;
 
-            expect(await SafeMathMock.add(a, b)).to.equal(4);
+            expect(await safeMathMock.div(a, b)).to.equal(4);
         });
     });
 
@@ -125,37 +149,37 @@ describe("SafeMath", function() {
             const a = 200;
             const b = 50;
 
-            expect(await SafeMathMock.add(a, b)).to.equal(0);
+            expect(await safeMathMock.mod(a, b)).to.equal(0);
         });
     });
 
-    describe("sub()", function () {
+    describe("subError()", function () {
         it("Returns: Subtraction of two unsigned integers, reverts if result is negative, with error message.", async function () {
             const a = 200;
             const b = 50;
             const errorMessage = 'Error';
 
-            expect(await SafeMathMock.add(a, b, errorMessage)).to.equal(150);
+            expect(await safeMathMock.subError(a, b, errorMessage)).to.equal(150);
         });
     });
 
-    describe("div()", function () {
+    describe("divError()", function () {
         it("Returns: Division of two unsigned integers, reverts on zero. Result is rounded towards zero, with error message.", async function () {
             const a = 200;
             const b = 50;
             const errorMessage = 'Error';
 
-            expect(await SafeMathMock.add(a, b, errorMessage)).to.equal(4);
+            expect(await safeMathMock.divError(a, b, errorMessage)).to.equal(4);
         });
     });
 
-    describe("mod()", function () {
+    describe("modError()", function () {
         it("Returns: Remainder of dividing two unsigned integers, reverts when dividing by zero, with error message.", async function () {
             const a = 200;
             const b = 50;
             const errorMessage = 'Error';
 
-            expect(await SafeMathMock.add(a, b, errorMessage)).to.equal(0);
+            expect(await safeMathMock.modError(a, b, errorMessage)).to.equal(0);
         });
     });
 
