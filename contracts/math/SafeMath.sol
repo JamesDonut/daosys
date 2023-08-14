@@ -167,7 +167,7 @@ library SafeMath {
      *
      * - Subtraction cannot overflow.
      */
-    function sub(
+    function subError(
         uint256 a,
         uint256 b,
         string memory errorMessage
@@ -190,7 +190,7 @@ library SafeMath {
      *
      * - The divisor cannot be zero.
      */
-    function div(
+    function divError(
         uint256 a,
         uint256 b,
         string memory errorMessage
@@ -216,7 +216,7 @@ library SafeMath {
      *
      * - The divisor cannot be zero.
      */
-    function mod(
+    function modError(
         uint256 a,
         uint256 b,
         string memory errorMessage
