@@ -5,39 +5,27 @@ import "contracts/math/Math.sol";
 
 contract MathMock {
 
-    function add(uint256 a, uint256 b) external returns (uint256 result) {
+    function add(uint256 a, uint256 b) external pure returns (uint256 result) {
         result = Math.add(a, b);
     }
 
-    function sub(uint256 a, uint256 b) external returns (uint256 result) {
+    function sub(uint256 a, uint256 b) external pure returns (uint256 result) {
         result = Math.sub(a, b);
     }
-/*
-    function sub(uint256 a, uint256 b, string errorMessage) external returns (uint256 result) {
-        result = Math.sub(a, b, errorMessage);
-    }
-*/
-    function mul(uint256 a, uint256 b) external returns (uint256 result) {
+
+    function mul(uint256 a, uint256 b) external pure returns (uint256 result) {
         result = Math.mul(a, b);
     }
 
-    function div(uint256 a, uint256 b) external returns (uint256 result) {
+    function div(uint256 a, uint256 b) external pure returns (uint256 result) {
         result = Math.div(a, b);
     }
-/*
-    function div(uint256 a, uint256 b, string errorMessage) external returns (uint256 result) {
-        result = Math.div(a, b, string errorMessage);
-    } 
-*/
-    function mod(uint256 a, uint256 b) external returns (uint256 result) {
+
+    function mod(uint256 a, uint256 b) external pure returns (uint256 result) {
         result = Math.mod(a, b);
     }
-/*
-    function mod(uint256 a, uint256 b, string errorMessage) external returns (uint256 result) {
-        result = Math.mod(a, b, string errorMessage);
-    } 
-*/
-    function sqrrt(uint256 a) external returns (uint c) {
+
+    function sqrrt(uint256 a) external pure returns (uint c) {
         c = Math.sqrrt(a);
     }
 
@@ -65,4 +53,5 @@ contract MathMock {
         return result_ = Math.bondingCurve(supply_, multiplier_);
     }
 }
+
 

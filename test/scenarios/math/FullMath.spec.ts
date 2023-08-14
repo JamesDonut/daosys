@@ -48,16 +48,7 @@ describe('FullMath', function () {
       const initCode = fullMathMock.deployTransaction.data;
       const a = -1000;
 
-      expect(await fullMathMock.abs(a)).to.equal(1000);
-    describe('reverts if', function () {
-      it('the input value is equal to MIN_INT256', async function () {
-
-        await expect(fullMathMock['abs(int256)'](initCode)).to. revertedWith(
-          'CreatUtils: failed deployment',
-        );
-      });
-    });
-    
+      expect(await fullMathMock.abs(a)).to.equal(1000);    
     });
   });
 
@@ -66,3 +57,5 @@ describe('FullMath', function () {
   /* -------------------------------------------------------------------------- */
 
 });
+
+

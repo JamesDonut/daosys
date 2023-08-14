@@ -5,7 +5,7 @@ import "contracts/math/FullMath.sol";
 
 contract FullMathMock {
 
-  function abs(int256 a) external returns (int256 result) {
+  function abs(int256 a) external pure returns (int256 result) {
     result = FullMath._abs(a);
   } 
 
